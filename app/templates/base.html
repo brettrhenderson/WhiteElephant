@@ -18,26 +18,6 @@
     {% block prescripts %}{% endblock %}
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="{{ url_for('index') }}">
-        <img src="{{url_for('.static', filename='images/BF3-icon.svg')}}" width="50" height="50" class="d-inline-block align-center" alt="">
-        Darth Shader
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('help') }}"> Help </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('aboutus') }}"> About Us</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <br>
 
     {% block content %}{% endblock %}
 
