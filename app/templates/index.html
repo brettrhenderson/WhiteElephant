@@ -20,45 +20,81 @@
     </div>
 </div>
 <div id="main" class="container">
-    <div id="players" class="halfwidth bottom">
-        <div class="form-group row">
-            <label for="numguests" class="col-sm-8 col-form-label"><b>Number of Guests:</b></label>
-            <div class="col-sm-4">
-                <input type="number" class="form-control" id="numguests">
-            </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-sm-8">Is Gavin Playing?</div>
-            <div class="col-sm-4">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gavin">
-                    <label class="form-check-label" for="gavin">
-                    </label>
+    <div class="row bottom">
+        <div class="col-7">
+            <div id="players" class="halfwidth">
+                <div class="form-group row">
+                    <label for="numguests" class="col-sm-8 col-form-label"><b>Number of Guests:</b></label>
+                    <div class="col-sm-4">
+                        <input type="number" class="form-control" id="numguests">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-8">Is Gavin Playing?</div>
+                    <div class="col-sm-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="gavin">
+                            <label class="form-check-label" for="gavin">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <table id="players-table" style="width: 100%;">
+                    <tr>
+                        <th>Name</th>
+                        <th>Number</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" class="w-100 old-in" id="guest1", placeholder="Jane Doe">
+                        </td>
+                        <td>
+                            <button onclick="drawNext()">Draw</button>
+                        </td>
+                    </tr>
+                </table>
+                <div class="row pb-3 pt-3">
+                    <div class="col-sm-6 text-right">
+                        <button onclick="deleteRow()">Delete</button>
+                    </div>
+                    <div class="col-sm-6 text-left">
+                        <button onclick="clearAll()">Clear</button>
+                    </div>
                 </div>
             </div>
         </div>
-        <table id="players-table" style="width: 100%;">
-            <tr>
-                <th>Name</th>
-                <th>Number</th>
-            </tr>
-            <tr>
-                <td>
-                    <input type="text" id="guest1", placeholder="Jane Doe">
-                </td>
-                <td>
-                    <button onclick="drawNext()">Draw</button>
-                </td>
-            </tr>
-        </table>
-        <div class="row pb-3 pt-3">
-            <div class="col-sm-6 text-right">
-                <button onclick="deleteRow()">Delete</button>
+        <div class="col-5 small-font">
+            <div class="row">
+                <div class="col-4 mt-3 bg-font">"Jingle Bells" -</div>
+                <div class="col-8">
+                    <audio title="Jingle Bells" controls loop>
+                        <source src="{{url_for('.static', filename='sounds/jingle_bells.mp3')}}" type="audio/mpeg">
+                    </audio>
+                </div>
             </div>
-            <div class="col-sm-6 text-left">
-                <button onclick="clearAll()">Clear</button>
+            <div class="row">
+                <div class="col-4 mt-3 bg-font">"It's Beginning to Look..." -</div>
+                <div class="col-8">
+                    <audio title="It's Beginning to Look a Lot Like Christmas" controls loop>
+                        <source src="{{url_for('.static', filename='sounds/its_beginning.mp3')}}" type="audio/mpeg">
+                    </audio>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 mt-3 bg-font">"Deşteaptă-te Române" -</div>
+                <div class="col-8">
+                    <audio title="Deşteaptă-te_Române" controls loop>
+                        <source src="{{url_for('.static', filename='sounds/Deşteaptă-te_Române.mp3')}}" type="audio/mpeg">
+                    </audio>
+                </div>
             </div>
         </div>
+    </div>
+    <div class="text-center w-50 halfwidth pt-2 ml-auto mb-3 mr-auto">
+        <p style="text-align: center; margin-top: 0; margin-bottom:0;">
+            <span id="visitors0">{{visitors[0]}}</span><span id="visitors1">{{visitors[1]}}</span><span id="visitors2">{{visitors[2]}}</span><span id="visitors3">{{visitors[3]}}</span><span id="visitors4">{{visitors[4]}}</span>
+            visitors and counting!
+        </p>
     </div>
     <!-- The Modal -->
     <div id="myModal" class="modal">
@@ -66,7 +102,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h2>You're a Winner!</h2>
-                <span class="close">&times;</span>
+                <span id="close" class="close">&times;</span>
             </div>
             <div class="modal-body">
                 <p>Congratulations!!! You got the Last Pick!</p>
@@ -78,6 +114,25 @@
             </div>
             <div class="modal-footer">
                 <h3>You're a Winner!</h3>
+            </div>
+        </div>
+    </div>
+    <div id="myModal2" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Oof! Bummer!</h2>
+                <span id="close2" class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-3"><img src="{{url_for('.static', filename='images/crybaby.gif')}}"height="150px"></div>
+                    <div class="col-6"><p>You get the first pick! prepare to be stolen from!</p></div>
+                    <div class="col-3"><img src="{{url_for('.static', filename='images/crybaby2.gif')}}"height="150px"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <h3>Oof! Bummer!</h3>
             </div>
         </div>
     </div>

@@ -9,4 +9,5 @@ log.setLevel(logging.DEBUG)
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html', title="Home")
+    app.visitor_count += 1
+    return render_template('index.html', title="Home", visitors=format(app.visitor_count, '05d'))

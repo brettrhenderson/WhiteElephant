@@ -1,12 +1,14 @@
 var nums = [];
 var mySound;
 mySound = new sound("/static/sounds/trumpet.mp3");
+mySound2 = new sound("/static/sounds/cry.mp3");
 
 function sound(src) {
   this.sound = document.createElement("audio");
   this.sound.src = src;
   this.sound.setAttribute("preload", "auto");
   this.sound.setAttribute("controls", "none");
+  this.sound.setAttribute("loop", "true");
   this.sound.style.display = "none";
   document.body.appendChild(this.sound);
   this.play = function(){
@@ -21,9 +23,11 @@ function sound(src) {
 }
 
 var modal = document.getElementById("myModal");
+var modal2 = document.getElementById("myModal2");
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+var span = document.getElementById("close");
+var span2 = document.getElementById("close2");
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
@@ -31,11 +35,23 @@ span.onclick = function() {
   mySound.stop();
   mySound.restart();
 }
+span2.onclick = function() {
+  modal2.style.display = "none";
+  mySound2.stop();
+  mySound2.restart();
+}
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+    mySound.stop();
+    mySound.restart();
+  }
+  else if (event.target == modal2) {
+    modal2.style.display = "none";
+    mySound2.stop();
+    mySound2.restart();
   }
 }
 
@@ -68,6 +84,11 @@ function drawNext() {
         modal.style.display = "block";
         mySound.play();
     }
+    else if (next == 1) {
+        // congratulations
+        modal2.style.display = "block";
+        mySound2.play();
+    }
 
     $('#players-table td:last').html(next)
 
@@ -76,7 +97,7 @@ function drawNext() {
         $('#players-table tr:last').after(
             `<tr>
                 <td>
-                    <input type="text" id="guest${nums.length + 1}", placeholder="Jane Doe">
+                    <input type="text" class="w-100 old-in" id="guest${nums.length + 1}", placeholder="Jane Doe">
                 </td>
                 <td>
                     <button onclick="drawNext()">Draw</button>
@@ -97,7 +118,7 @@ function deleteRow() {
         $('#players-table tr:last').after(
             `<tr>
                 <td>
-                    <input type="text" id="guest${nums.length + 1}", placeholder="Jane Doe">
+                    <input type="text" class="w-100 old-in" id="guest${nums.length + 1}", placeholder="Jane Doe">
                 </td>
                 <td>
                     <button onclick="drawNext()">Draw</button>
@@ -114,7 +135,7 @@ function clearAll() {
     $('#players-table tr:last').after(
             `<tr>
                 <td>
-                    <input type="text" id="guest${nums.length + 1}", placeholder="Jane Doe">
+                    <input type="text" class="w-100 old-in" id="guest${nums.length + 1}", placeholder="Jane Doe">
                 </td>
                 <td>
                     <button onclick="drawNext()">Draw</button>

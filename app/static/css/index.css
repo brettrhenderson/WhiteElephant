@@ -17,17 +17,19 @@ td {
 }
 
 .halfwidth {
-  width: 60%;
-  margin: auto;
+  /*width: 60%;
+  margin: auto;*/
   background-image: url("/static/images/texture.jpg");
   background-repeat: repeat;
+  padding: 10px;
+  border: 5px inset grey;
 }
 
 .bottom {
   margin-bottom: 50px;
 }
 
-#numguests {
+#numguests, .old-in {
   border-radius: 0;
   border-width: 2px;
   border-style: inset;
@@ -42,6 +44,21 @@ td {
   background-image: url("/static/images/fire.gif");
   background-repeat: repeat-x;
   animation: color-change 1s infinite;
+}
+
+#visitors0, #visitors2, #visitors4 {
+  color: #a03;
+  text-shadow: 0px 0px 2px #fff, 0px 0px 4px #fff;
+  background-color: #03a;
+  border: 2px inset grey;
+  padding: 5px;
+}
+#visitors1, #visitors3 {
+  color: #ebeb34;
+  text-shadow: 0px 0px 2px #fff;
+  background-color: #03a;
+  border: 2px inset grey;
+  padding: 5px;
 }
 
 @keyframes color-change {
@@ -120,4 +137,33 @@ td {
 @keyframes animatetop {
   from {top: -300px; opacity: 0}
   to {top: 300; opacity: 1}
+}
+
+.small-font {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 1rem;
+    padding-left: 50px;
+}
+
+.bg-font {
+    background-image: url("/static/images/texture.jpg");
+    background-repeat: repeat;
+}
+
+audio {
+    /*height:200px; width:300px; background:yellow;*/
+}
+
+audio::-webkit-media-controls-enclosure {
+    border-radius: 0;
+    border: 3px outset lightgray;
+}
+audio::-webkit-media-controls-panel {
+    background-image: linear-gradient(#bbb, #fff)
+}
+audio::-webkit-media-controls-mute-button,
+audio::-webkit-media-controls-volume-control-container,
+audio::-webkit-media-controls-play-button {
+    height: 30px;
+    background-color: lightgrey;
 }
