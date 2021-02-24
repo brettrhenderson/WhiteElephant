@@ -14,7 +14,8 @@ more processing power than it should.
 
 2. Install requirements
 
-I use python 3.8.5. No guarantees of it working for other versions.
+Ideally do this in a virtualenv or conda environment and not with your system python!
+I used python 3.8.5. No guarantees of it working for other versions.
 
 ```
 pip install -r requirements.txt
