@@ -23,7 +23,7 @@ pip install -r requirements.txt
 
 3. Serve up the webpage
 ```
-python wgsi.py
+python wsgi.py
 ```
 
 4. Navigate to it in your browser at http://localhost:5000
