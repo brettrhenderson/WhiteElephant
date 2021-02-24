@@ -14,7 +14,7 @@ more processing power than it should.
 
 2. Install requirements
 
-I use python 3.7. No guarantees of it working for other versions.
+I use python 3.8.5. No guarantees of it working for other versions.
 
 ```
 pip install -r requirements.txt
