@@ -59,8 +59,8 @@ window.onclick = function(event) {
 function drawNext() {
     var tot = $('#numguests').val();
 
-    if ($('#gavin')[0].checked) {
-        if ($('#guest' + (nums.length + 1)).val().toLowerCase() == "gavin") {
+    if ($('#john')[0].checked) {
+        if ($('#guest' + (nums.length + 1)).val().toLowerCase() == "john") {
             next = tot;
         }
         else {
